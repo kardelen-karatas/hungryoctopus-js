@@ -1,1 +1,1 @@
-# hungryoctopus-js
+# Game Hungry Octopus
