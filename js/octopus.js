@@ -1,22 +1,39 @@
 class Octopus {
     constructor() {
-        //const img = new Image();
-        const img = document.createElement('img');
-        img.onload = () => {
-            this.img = img;
-            this.x = 10;
-            this.y = 10;
-            this.h = 100;
-            this.w = 100;
+        this.x = 10;
+        this.y = 10;
+        this.h = 75;
+        this.w = 75;
+
+        this.img = new Image(); // <img>
+        
+        this.img.onload = () => {
+            console.log("img loaded!")
+            this.draw()
         }
-        img.src = 'images/octopus2.png';        
+        this.img.src = 'images/octopus2.png';
+
     }
 
     draw() {
-        console.log("octopus is loading ...")
-        console.log(`canvas W: ${ctx.canvas.width} canvas H: ${ctx.canvas.height}`)
-        ctx.drawImage(this.img, 10,10,100,100)
+        ctx.drawImage(this.img, this.x,this.y,this.h,this.w)
     
+    }
+
+    moveUp() {
+        this.y -= 75
+    }
+
+    moveDown(){
+        this.y += 75
+    }
+
+    moveRight(){
+        this.x += 75
+    }
+
+    moveLeft(){
+        this.x -= 75
     }
         
   }

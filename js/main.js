@@ -1,28 +1,48 @@
 let octopus; 
+let gameover;
 
 const ctx = document.getElementById('canvas').getContext('2d');
 const W = ctx.canvas.width;
 const H = ctx.canvas.height;
 
+let raf;
+let frameTimer = 0;
+function animLoop() {
+    frameTimer++;
+    ctx.clearRect(0,0,W,H);
+    octopus.draw()
+    if(!gameover){
+        raf = requestAnimationFrame(animLoop);
+    }
+}
 
 function startGame(){
     console.log("game started");
-    octopus = new Octopus();
-    octopus.draw();
-
+    if(raf){
+        cancelAnimationFrame(raf);
+    }
+    octopus = new Octopus(); // 1s
+    animLoop()
 }
 
+document.onkeydown = function (e) {
+    console.log(e.code);
+    if (!octopus) return;
+    switch (e.code) {
+        case "ArrowLeft": 
+            octopus.moveLeft();
+            break;
+        case "ArrowRight":
+            octopus.moveRight();
+            break;
+        case "ArrowUp":
+            octopus.moveUp();
+            break;
+        case "ArrowDown":
+            octopus.moveDown();
+            break;
+
+    }
+  }
+
 startGame()
-
-
-// const octopusImg = new Image()
-// function draw(){
-//     octopusImg.onload = function() {
-//         ctx.drawImage(octopusImg,10, 10, 100, 100)
-//     }
-//     octopusImg.src = 'images/octopus2.png';
-// } 
-    
-// draw()
-
-
