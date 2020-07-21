@@ -29,7 +29,6 @@ function startGame(){
 }
 
 document.onkeydown = function (e) {
-    console.log(e.code);
     if (!octopus) return;
     switch (e.code) {
         case "ArrowLeft": 
@@ -44,7 +43,6 @@ document.onkeydown = function (e) {
         case "ArrowDown":
             octopus.moveDown();
             break;
-
     }
   }
 

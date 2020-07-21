@@ -42,13 +42,19 @@ class Labyrinth {
                 break;
         }
     }
+
+    tileType(x, y){
+        return this.pattern[x][y]
+    }
     
     draw(){
         for (let y=0; y< this.pattern.length; y++){
             let labY = y*48
             for(let x=0; x<this.pattern[y].length; x++){
                 let labX = x*48
-                this.drawTiles(labX, labY, this.pattern[x][y])
+                let type = this.tileType(x, y)
+                
+                this.drawTiles(labX, labY, type)
             }
         }
     }

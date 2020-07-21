@@ -8,7 +8,6 @@ class Octopus {
         this.img = new Image(); // <img>
         
         this.img.onload = () => {
-            console.log("img loaded!")
             this.draw()
         }
         this.img.src = 'images/octopus2.png';
@@ -19,19 +18,19 @@ class Octopus {
     }
 
     moveUp() {
-        this.y -= 48
+        if(this.y >= this.h) this.y -= 48        
     }
 
     moveDown(){
-        this.y += 48
+        if(this.y < H - this.h) this.y += 48
     }
 
     moveRight(){
-        this.x += 48
+        if(this.x < W - this.w) this.x += 48
     }
 
     moveLeft(){
-        this.x -= 48
+        if(this.x >= this.w) this.x -= 48
     }
         
   }
