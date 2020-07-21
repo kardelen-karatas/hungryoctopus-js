@@ -1,9 +1,9 @@
 class Octopus {
     constructor() {
-        this.x = 10;
-        this.y = 10;
-        this.h = 75;
-        this.w = 75;
+        this.x = 0;
+        this.y = 0;
+        this.h = 48;
+        this.w = 48;
 
         this.img = new Image(); // <img>
         
@@ -19,19 +19,19 @@ class Octopus {
     }
 
     moveUp() {
-        this.y -= 75
+        this.y -= 48
     }
 
     moveDown(){
-        this.y += 75
+        this.y += 48
     }
 
     moveRight(){
-        this.x += 75
+        this.x += 48
     }
 
     moveLeft(){
-        this.x -= 75
+        this.x -= 48
     }
         
   }

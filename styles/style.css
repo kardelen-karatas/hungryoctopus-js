@@ -15,13 +15,14 @@ h1{
 }
 
 #game-board {
-    padding: 20px 20px;
-    position: relative;
+    /* padding: 20px 20px; */
+    /* position: relative; */
+    text-align: center;
   }
 
 #game-board canvas {
-    position:absolute;
-    align-content: center; 
+    /* position:absolute; */
+    /* align-content: center;  */
     top:0;
     /*width:100%; height:100%; */
     object-fit:contain;

@@ -22,20 +22,34 @@ class Labyrinth {
     }
 
     drawRect(x, y, color){
-        ctx.fillStyle(color)
-        ctx.drawRect(x, y, 75, 75)
+        ctx.fillStyle = color;
+        ctx.fillRect(x, y, 48, 48);
     }
     
     drawTiles(x, y, type){
-        if(type === "S"){
-            this.drawRect(x, y, "bleu")
-        }
-        else if(type === "A"){
-            this.drawRect(x, y, "green")
+        switch(type){
+            case "F":
+                this.drawRect(x, y, "#009FE1");
+                break;
+            case "W":
+                this.drawRect(x, y, "#D9B8AD");
+                break;
+            case "P":
+                this.drawRect(x, y, "#009FE1");
+                break;
+            case "G":
+                this.drawRect(x, y, "#825438");
+                break;
         }
     }
     
-    drawLabyrinth(){}
-    
-
+    draw(){
+        for (let y=0; y< this.pattern.length; y++){
+            let labY = y*48
+            for(let x=0; x<this.pattern[y].length; x++){
+                let labX = x*48
+                this.drawTiles(labX, labY, this.pattern[x][y])
+            }
+        }
+    }
 }
