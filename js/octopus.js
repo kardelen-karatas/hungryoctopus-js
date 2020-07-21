@@ -12,12 +12,10 @@ class Octopus {
             this.draw()
         }
         this.img.src = 'images/octopus2.png';
-
     }
-
+    
     draw() {
         ctx.drawImage(this.img, this.x,this.y,this.h,this.w)
-    
     }
 
     moveUp() {
