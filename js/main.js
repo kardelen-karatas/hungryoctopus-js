@@ -27,23 +27,9 @@ function startGame(){
     octopus = new Octopus(); // 1s
     animLoop()
 }
-
 document.onkeydown = function (e) {
     if (!octopus) return;
-    switch (e.code) {
-        case "ArrowLeft": 
-            octopus.moveLeft();
-            break;
-        case "ArrowRight":
-            octopus.moveRight();
-            break;
-        case "ArrowUp":
-            octopus.moveUp();
-            break;
-        case "ArrowDown":
-            octopus.moveDown();
-            break;
-    }
-  }
+    octopus.move(e.code);
+}
 
 startGame()

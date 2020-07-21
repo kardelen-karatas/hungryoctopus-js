@@ -32,6 +32,28 @@ class Octopus {
     moveLeft(){
         if(this.x >= this.w) this.x -= 48
     }
+    
+    canMove(labyrinthe){
+
+    }
+
+    move(eCode){
+        switch (eCode) {
+        case "ArrowLeft": 
+            this.moveLeft();
+            break;
+        case "ArrowRight":
+            this.moveRight();
+            break;
+        case "ArrowUp":
+            this.moveUp();
+            break;
+        case "ArrowDown":
+            this.moveDown();
+            break;
+    
+        }
+    }
         
   }
 
