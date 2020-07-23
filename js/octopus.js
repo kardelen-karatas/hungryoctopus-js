@@ -17,39 +17,54 @@ class Octopus {
         ctx.drawImage(this.img, this.x,this.y,this.h,this.w)
     }
 
-    moveUp() {
-        if(this.y >= this.h) this.y -= 48        
+    moveUp(isMovable) {
+        if(this.y >= this.h && isMovable) this.y -= 48        
     }
 
-    moveDown(){
-        if(this.y < H - this.h) this.y += 48
+    moveDown(isMovable){
+        if(this.y < H - this.h && isMovable) this.y += 48
     }
 
-    moveRight(){
-        if(this.x < W - this.w) this.x += 48
+    moveRight(isMovable){
+        if(this.x < W - this.w && isMovable) this.x += 48
     }
 
-    moveLeft(){
-        if(this.x >= this.w) this.x -= 48
-    }
-    
-    canMove(labyrinthe){
-
+    moveLeft(isMovable){
+        if(this.x >= this.w && isMovable) this.x -= 48
     }
 
-    move(eCode){
+    isMovableTileType(eCode, labyrinth){
+        let nextStepX = this.x / this.w;
+        let nextStepY = this.y / this.h;
+
+        if(eCode === "ArrowLeft"){nextStepX -= 1}
+        if(eCode === "ArrowRight"){nextStepX += 1}
+        if(eCode === "ArrowUp"){nextStepY -= 1}
+        if(eCode === "ArrowDown"){nextStepY += 1}
+        
+        let tileType = labyrinth.tileType(nextStepX,nextStepY)
+        
+        if(tileType === "W")return false
+        return true
+        
+    }
+
+    move(eCode, labyrinth){
+        let isMovable = this.isMovableTileType(eCode, labyrinth)
+
+        console.log(isMovable)
         switch (eCode) {
         case "ArrowLeft": 
-            this.moveLeft();
+            this.moveLeft(isMovable);
             break;
         case "ArrowRight":
-            this.moveRight();
+            this.moveRight(isMovable);
             break;
         case "ArrowUp":
-            this.moveUp();
+            this.moveUp(isMovable);
             break;
         case "ArrowDown":
-            this.moveDown();
+            this.moveDown(isMovable);
             break;
     
         }

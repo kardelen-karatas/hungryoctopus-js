@@ -29,7 +29,7 @@ function startGame(){
 }
 document.onkeydown = function (e) {
     if (!octopus) return;
-    octopus.move(e.code);
+    octopus.move(e.code, labyrinth);
 }
 
 startGame()
