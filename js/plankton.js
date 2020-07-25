@@ -20,18 +20,6 @@ class Plankton{
         let x = randomNum(1, 15)
         let y = randomNum(1, 15)        
         if(labyrinth.tileType(x,y) === "F"){
-            if(planktons){
-                console.log(planktons)
-                for(const id in planktons){
-                    let plankton = planktons[id]
-                    console.log(plankton.x)
-                    console.log(plankton.y)
-                    if(plankton.x === x && plankton.y === y){
-
-                        console.log("true")
-                    }
-                }
-        }
             this.x = x * this.w
             this.y = y * this.h
         } else {this.selectRandomPosition()}
