@@ -1,22 +1,16 @@
 body{
     background-color:#D9B8AD;
-    
+    /* position: absolute; */
 }
 
-
-header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-h1{
+p{
     color: aquamarine;
-    font-size: 50px;
 }
-
+/* #game-info {
+    position: relative;
+} */
 #game-board {
     /* padding: 20px 20px; */
-    /* position: relative; */
     text-align: center;
   }
 

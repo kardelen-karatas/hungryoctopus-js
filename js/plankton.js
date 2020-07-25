@@ -4,7 +4,6 @@ class Plankton{
         this.y  
         this.h = 48
         this.w = 48
-
         this.img = new Image(); 
         
         this.img.onload = () => {
@@ -17,30 +16,33 @@ class Plankton{
 
     selectRandomPosition(){
         const randomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
-        let x = randomNum(1, 14)
-        let y = randomNum(1, 14)        
-        //console.log(`lab : ${labyrinth}, tileType : ${labyrinth.tileType(x,y)}`)
+        let randomPos = randomNum(0, labyrinth.movableTiles.length - 1)
         
-        if(labyrinth.tileType(x,y) === "F"){
-            console.log(`planktons : ${planktons}`)
+        let randomTile = labyrinth.movableTiles[randomPos]
+        console.log(randomTile.x, randomTile.y)
 
-            this.x = x * this.w
-            this.y = y * this.h
-            if(planktons) {
-            
-                for(const id in planktons){
-                 
-                    let plankton = planktons[id]
-                    console.log(`existing planton ${id} : ${plankton.x /48}, ${plankton.y/48}`)
-                    console.log(`Newly plankton : ${x}, ${y}`)
-                    if(plankton.x === x && plankton.y === y){
-                        console.log("test") 
-                    }
-                }
-        } 
+        this.x = randomTile.x * this.w
+        this.y = randomTile.y * this.h
+        
+        // let x = randomNum(1, 14)
+        // let y = randomNum(1, 14)        
+        // //console.log(`lab : ${labyrinth}, tileType : ${labyrinth.tileType(x,y)}`)
+        
+        // if(labyrinth.tileType(x,y) === "F"){
+        //     console.log(`planktons : ${planktons}`)
 
-        }
-        else {this.selectRandomPosition()}
+        //     this.x = x * this.w
+        //     this.y = y * this.h
+
+        //     let firstPlank = planktons[0]
+        //     console.log(`Tile Type : ${labyrinth.tileType(x,y)}`)
+        //     console.log(`Random coord: ${x}, ${y}`)
+        //     console.log(`First plankton coord: ${firstPlank.x /48}, ${firstPlank.y/48}`)
+        //     if(firstPlank.x === x && firstPlank.y === y){
+        //         console.log("the same")
+        //     }
+        
+        // } else {this.selectRandomPosition()}
         
     }
 

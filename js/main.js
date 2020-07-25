@@ -3,6 +3,8 @@ let gameEnded;
 let labyrinth;
 let planktons = {};
 let planktonId = 0;
+let eatenPlanktons = 0;
+let $planktonCounter = document.getElementById("eaten-planktons")
 
 const ctx = document.getElementById('canvas').getContext('2d');
 const W = ctx.canvas.width;
@@ -33,7 +35,9 @@ function drawGame(){
 
     for (const id in planktons){
         if(planktons[id].isEaten()){
-            delete planktons[id]
+            delete planktons[id];
+            eatenPlanktons++;
+            $planktonCounter.innerHTML = `${eatenPlanktons}`;
         }
     }
     

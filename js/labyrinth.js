@@ -1,3 +1,11 @@
+class MovableTile {
+    constructor(x, y) {
+        this.x = x
+        this.y = y
+    }
+}
+
+
 class Labyrinth {
 
     constructor(){
@@ -17,8 +25,9 @@ class Labyrinth {
         ,"WFFFFFFWFWWFFWW"
         ,"FFWWFFFFFFFFWWW"
         ,"WWWWFFWWFWWFWWW"
-        ,"WFFFFWWWFFWFFFG"
+        ,"WFFFFWWWFFWFFFF"
         ]
+        this.movableTiles = []
     }
 
     drawRect(x, y, color){
@@ -37,9 +46,6 @@ class Labyrinth {
             case "P":
                 this.drawRect(x, y, "#009FE1");
                 break;
-            case "G":
-                this.drawRect(x, y, "#825438");
-                break;
         }
     }
 
@@ -53,6 +59,10 @@ class Labyrinth {
             for(let x=0; x<this.pattern[y].length; x++){
                 let labX = x*48
                 let type = this.tileType(x, y)
+
+                if(type === "F"){
+                    this.movableTiles.push(new MovableTile(x,y))
+                }
                 
                 this.drawTiles(labX, labY, type)
             }
