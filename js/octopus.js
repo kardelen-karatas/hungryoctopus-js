@@ -53,8 +53,6 @@ class Octopus {
 
     move(eCode){
         let isMovable = this.isMovableTileType(eCode)
-
-        console.log(isMovable)
         switch (eCode) {
         case "ArrowLeft": 
             this.moveLeft(isMovable);
