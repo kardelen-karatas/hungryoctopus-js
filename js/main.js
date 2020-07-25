@@ -1,9 +1,14 @@
 let octopus; 
-let gameEnded;
 let labyrinth;
 let planktons = {};
+
+let gameOver
+let gameTimer = 0;
 let planktonId = 0;
 let eatenPlanktons = 0;
+let planktonInterval = 500;
+
+let $gameTimer = document.getElementById("game-timer")
 let $planktonCounter = document.getElementById("eaten-planktons")
 
 const ctx = document.getElementById('canvas').getContext('2d');
@@ -14,10 +19,14 @@ let raf;
 let frameTimer = 0;
 function animLoop() {
     frameTimer++;
-    
+    $gameTimer.innerHTML = `${gameTimer % 60}`
     drawGame()
+    if(frameTimer % planktonInterval === 0){
+        addPlankton()
+        planktonInterval += 90
+    }
     
-    if(!gameEnded){
+    if(!gameOver){
         raf = requestAnimationFrame(animLoop);
     }
     //how to optimise requestAnimationFrame ??? It takes to much sources !!!
@@ -40,9 +49,11 @@ function drawGame(){
             $planktonCounter.innerHTML = `${eatenPlanktons}`;
         }
     }
-    
-    if(!planktons && octopus.x === W - octopus.w && octopus.y === H - octopus.h){
-        gameEnded = true
+    console.log(gameTimer)
+    if(gameTimer === 75){
+        gameOver = true
+        clearInterval(intervalId)
+        gameTimer = 0;
     }
     
 }
@@ -55,7 +66,17 @@ function startGame(){
     octopus = new Octopus(); // 1s
     addPlankton()
     addPlankton()
-    console.log(gameEnded)
+    addPlankton()
+    addPlankton()
+    addPlankton()
+    addPlankton()
+    addPlankton()
+    addPlankton()
+    addPlankton()
+    addPlankton()
+    intervalId = setInterval(() => {
+        gameTimer++;
+    }, 1000)
     animLoop()
 }
 
