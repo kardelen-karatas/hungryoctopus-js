@@ -11,6 +11,7 @@ let planktonInterval = 500;
 
 let $gameTimer = document.getElementById("game-timer")
 let $planktonCounter = document.getElementById("eaten-planktons")
+let $soundCheckBox = document.getElementById("sound-checkbox")
 
 const ctx = document.getElementById('canvas').getContext('2d');
 const W = ctx.canvas.width;
@@ -53,10 +54,11 @@ function drawGame(){
         gameOver = true
         timer.stop()
         timer.reset()
-        ctx.clearRect(0,0,W,H)
+        disableDiv("game-board");
+        enableDiv("game-end");
     }
-    
 }
+
 
 function startGame(){
     if(raf){
@@ -91,18 +93,31 @@ document.onkeydown = function (e) {
 }
 
 document.getElementById("start-button").onclick = function() {
-    //game = new Game()
+    disableDiv("game-intro");
+    enableDiv("game-board");
     startGame();
     createAndPlaySound("sounds/underwater-sound.mp3")
+
   };
 
 
 function createAndPlaySound(src) {
     const sound = document.createElement('audio') // <audio>
+    window.sound = sound;
     sound.addEventListener('canplay', function () {
         if(document.getElementById("sound-checkbox").checked){
             sound.play()
         }
     })
     sound.src = src
+}
+
+function enableDiv(divId){
+    let el = document.getElementById(divId);
+    el.classList.add("active");
+}
+
+function disableDiv(divId){
+    let el = document.getElementById(divId);
+    el.classList.remove("active");
 }

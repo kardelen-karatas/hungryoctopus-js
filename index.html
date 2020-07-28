@@ -8,18 +8,27 @@
     <body>
         <div id="container">
 
-            <div id="game-info">
-                <p>
-                    Time : <span id=game-timer>00:00</span> 
-                    Planktons : <span  id="eaten-planktons">0</span>
-                </p>
+            <div id="game-intro" class="active">
                 <button id="start-button">START</button>
                 <input type="checkbox" id="sound-checkbox" name="sound" checked>
                 <label for="sound">Sound ON</label>
             </div>
 
             <div id="game-board">
+                <p>
+                    Time : <span id=game-timer>00:00</span> 
+                    Planktons : <span  id="eaten-planktons">0</span>
+                </p>
                 <canvas width="720" height="720" id="canvas"></canvas>
+            </div>
+
+            <div id="game-end">
+                <p>
+                    OCTOPUS ATE <span  id="eaten-planktons">0</span> PLANKTONS 
+                    IN <span id=game-timer>00:00</span> MINS.
+                     
+                </p>
+                <!-- <button id="replay-button">PLAY AGAIN</button> -->
             </div>
         
         </div>

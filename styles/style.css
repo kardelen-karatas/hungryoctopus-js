@@ -7,13 +7,14 @@ body{
     display: flex;
 }
 
-#game-info{
+
+
+#game-intro{
     width: 300px;
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 p{  
     flex: 0 0 120px;
@@ -32,3 +33,15 @@ p{
     object-fit:contain;
 
 }
+
+#game-end{
+    position: relative;
+}
+
+#game-intro, 
+#game-end,
+#game-board {display:none;}
+
+#game-intro.active {display:flex;}
+#game-board.active {display:flex;}
+#game-end.active {display: flex;}
