@@ -91,4 +91,16 @@ document.onkeydown = function (e) {
     octopus.move(e.code, labyrinth);
 }
 
-startGame()
+document.getElementById("start-button").onclick = function() {
+    startGame();
+  };
+
+function createAndPlaySound(src) {
+    const eatSound = document.createElement('audio') // <audio>
+    eatSound.addEventListener('canplay', function () {
+        eatSound.play()
+    })
+    eatSound.src = src
+}
+
+createAndPlaySound("sounds/underwater-sound.mp3")

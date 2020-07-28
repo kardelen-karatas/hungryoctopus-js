@@ -8,13 +8,11 @@ body{
 }
 
 #game-info{
-    background: yellow;
     width: 300px;
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* position: absolute; */
 
 }
 p{  
@@ -23,7 +21,6 @@ p{
 }
 
 #game-board {
-    background: green;
     flex: 1;
     margin: 0;
     position: relative;
