@@ -47,6 +47,7 @@ function drawGame(){
             delete planktons[id];
             eatenPlanktons++;
             $planktonCounter.innerHTML = `${eatenPlanktons}`;
+            createAndPlaySound("sounds/eating-sound2.mp3");
         }
     }
     console.log(gameTimer)
@@ -93,14 +94,17 @@ document.onkeydown = function (e) {
 
 document.getElementById("start-button").onclick = function() {
     startGame();
+    createAndPlaySound("sounds/underwater-sound.mp3")
   };
 
+
 function createAndPlaySound(src) {
-    const eatSound = document.createElement('audio') // <audio>
-    eatSound.addEventListener('canplay', function () {
-        eatSound.play()
+    const sound = document.createElement('audio') // <audio>
+    sound.addEventListener('canplay', function () {
+        if(document.getElementById("sound-checkbox").checked){
+            sound.play()
+        }
     })
-    eatSound.src = src
+    sound.src = src
 }
 
-createAndPlaySound("sounds/underwater-sound.mp3")
