@@ -1,9 +1,10 @@
 let octopus; 
 let labyrinth;
+let timer;
+let game;
 let planktons = {};
 
 let gameOver
-let gameTimer = 0;
 let planktonId = 0;
 let eatenPlanktons = 0;
 let planktonInterval = 500;
@@ -19,7 +20,7 @@ let raf;
 let frameTimer = 0;
 function animLoop() {
     frameTimer++;
-    $gameTimer.innerHTML = `${gameTimer % 60}`
+    $gameTimer.innerHTML = `${timer.printTime()}`
     drawGame()
     if(frameTimer % planktonInterval === 0){
         addPlankton()
@@ -29,8 +30,6 @@ function animLoop() {
     if(!gameOver){
         raf = requestAnimationFrame(animLoop);
     }
-    //how to optimise requestAnimationFrame ??? It takes to much sources !!!
-
 }
 
 function drawGame(){
@@ -50,11 +49,11 @@ function drawGame(){
             createAndPlaySound("sounds/eating-sound2.mp3");
         }
     }
-    console.log(gameTimer)
-    if(gameTimer === 75){
+    if(timer.currentTime === 75){
         gameOver = true
-        clearInterval(intervalId)
-        gameTimer = 0;
+        timer.stop()
+        timer.reset()
+        ctx.clearRect(0,0,W,H)
     }
     
 }
@@ -75,9 +74,8 @@ function startGame(){
     addPlankton()
     addPlankton()
     addPlankton()
-    intervalId = setInterval(() => {
-        gameTimer++;
-    }, 1000)
+    timer = new Timer()
+    timer.start()
     animLoop()
 }
 
@@ -93,6 +91,7 @@ document.onkeydown = function (e) {
 }
 
 document.getElementById("start-button").onclick = function() {
+    //game = new Game()
     startGame();
     createAndPlaySound("sounds/underwater-sound.mp3")
   };
@@ -107,4 +106,3 @@ function createAndPlaySound(src) {
     })
     sound.src = src
 }
-

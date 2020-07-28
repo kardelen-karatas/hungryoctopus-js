@@ -1,7 +1,30 @@
+frameTimer = 0;
 class Game{
     constructor(){
-        this.gameTimer = 0;
         this.gameOver;
+        this.raf;
+
+    }
+
+    startGame(){
+        if(this.raf){
+            cancelAnimationFrame(raf);
+        }
+        labyrinth = new Labyrinth();
+        octopus = new Octopus(); // 1s
+        this.   addPlankton()
+        this.addPlankton()
+        this.addPlankton()
+        this.addPlankton()
+        this.addPlankton()
+        this.addPlankton()
+        this.addPlankton()
+        this.addPlankton()
+        this.addPlankton()
+        this.addPlankton()
+        timer = new Timer()
+        timer.start()
+        this.animLoop()
     }
 
     drawGame(){
@@ -18,16 +41,47 @@ class Game{
                 delete planktons[id];
                 eatenPlanktons++;
                 $planktonCounter.innerHTML = `${eatenPlanktons}`;
+                createAndPlaySound("sounds/eating-sound2.mp3");
             }
         }
-        console.log(this.gameTimer)
-        if(this.gameTimer === 75){
+        if(timer.currentTime === 75){
             gameOver = true
-            clearInterval(intervalId)
-            this.gameTimer = 0;
+            timer.stop()
+            timer.reset()
+            ctx.clearRect(0,0,W,H)
         }
-
     }
+
+    animLoop() {
+        frameTimer++;
+        $gameTimer.innerHTML = `${timer.printTime()}`
+        this.drawGame()
+        if(frameTimer % planktonInterval === 0){
+            addPlankton()
+            planktonInterval += 90
+        }
+        
+        if(!gameOver){
+            this.raf = requestAnimationFrame(this.animLoop);
+        }
+    }
+
+    addPlankton(){
+        let plankton = new Plankton()
+        planktons[planktonId] = plankton
+        planktonId++
+    }
+
+    createAndPlaySound(src) {
+        const sound = document.createElement('audio') // <audio>
+        sound.addEventListener('canplay', function () {
+            if(document.getElementById("sound-checkbox").checked){
+                sound.play()
+            }
+        })
+        sound.src = src
+    }
+
 }
 
 
