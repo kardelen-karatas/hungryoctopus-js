@@ -38,13 +38,13 @@ class Labyrinth {
     drawTiles(x, y, type){
         switch(type){
             case "F":
-                this.drawRect(x, y, "#009FE1");
+                this.drawRect(x, y, "#63c5ec");
                 break;
             case "W":
-                this.drawRect(x, y, "#D9B8AD");
+                this.drawRect(x, y, "#f0b6a1");
                 break;
             case "P":
-                this.drawRect(x, y, "#009FE1");
+                this.drawRect(x, y, "#63c5ec");
                 break;
         }
     }

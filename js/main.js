@@ -10,7 +10,8 @@ let eatenPlanktons = 0;
 let planktonInterval = 500;
 
 let $gameTimer = document.getElementById("game-timer")
-let $planktonCounter = document.getElementById("eaten-planktons")
+let $planktonCounter = document.getElementById("eaten-planktons-game")
+let $totalEatenPlanktons = document.getElementById("eaten-planktons-end")
 let $soundCheckBox = document.getElementById("sound-checkbox")
 
 const ctx = document.getElementById('canvas').getContext('2d');
@@ -56,6 +57,7 @@ function drawGame(){
         timer.reset()
         disableDiv("game-board");
         enableDiv("game-end");
+        $totalEatenPlanktons.innerHTML = `${eatenPlanktons}`;
     }
 }
 

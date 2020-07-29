@@ -8,25 +8,33 @@
     <body>
         <div id="container">
 
-            <div id="game-intro" class="active">
-                <button id="start-button">START</button>
-                <input type="checkbox" id="sound-checkbox" name="sound" checked>
-                <label for="sound">Sound ON</label>
+            <div id="game-intro">
+                <div id="hungry-octopus">
+                    <img class="octopus" src="images/octopus-original.svg">
+                    <h1>Hungry</br> Octopus</h1>
+                </div>
+                <p class="game-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>Vivamus orci massa, rhoncus eu elementum in, iaculis sit amet magna. 
+                </p>
+                
+                <div class="start-button-div">
+                    <button class="start-button" id="start-button">START</button>
+                    <input type="checkbox" id="sound-checkbox" name="sound" checked>
+                    <label for="sound">Sound ON</label>
+                </div>
+                
             </div>
 
             <div id="game-board">
-                <p>
-                    Time : <span id=game-timer>00:00</span> 
-                    Planktons : <span  id="eaten-planktons">0</span>
-                </p>
+                <p>Time : <span id=game-timer>00:00</span></p>
                 <canvas width="720" height="720" id="canvas"></canvas>
+                <p>Planktons : <span  id="eaten-planktons-game">0</span></p>
             </div>
 
-            <div id="game-end">
-                <p>
-                    OCTOPUS ATE <span  id="eaten-planktons">0</span> PLANKTONS 
-                    IN <span id=game-timer>00:00</span> MINS.
-                     
+            <div id="game-end" class=active>
+                <p class="game-end-text">
+                    Octopus is not hungry anymore.<br/>
+                    It ate <span  id="eaten-planktons-end">0</span> planktons.
                 </p>
                 <!-- <button id="replay-button">PLAY AGAIN</button> -->
             </div>
