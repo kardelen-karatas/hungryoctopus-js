@@ -10,18 +10,12 @@ body{
     font-family: ocean, 'Courier New', Courier, monospace;    
     background:url("../images/marine-background.jpg") center no-repeat; background-size:cover;
     color:#FF7F50;
-    padding-top:250px;padding-bottom:250px; 
+    /* padding-top:250px; */
+    /* padding-bottom:250px;  */
     /* pseudo-centrage vertical */
     text-align:center;
   }
 
-
-#game-intro{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 #hungry-octopus{
     display: flex;
     align-content: space-around;
@@ -52,30 +46,55 @@ button.start-button{
     font-style:ocean, 'Courier New', Courier, monospace; 
 }
 
+
+
+.game-timer{
+    font-size: 200%;
+    margin-right: 50px;
+}
+
+.eaten-planktons-game{
+    font-size: 200%;
+    margin-left: 50px;
+}
+
 p.game-end-text{
-    display: flow-root;
-    margin: 0px;
-    margin-block-start: 0;
-    position: relative;
+    margin-top: 150px;
     text-align: center;
     font-size: 300%;
 }
 
+#octopus-end{
+    margin-top: 70px;
+}
+
+#game-intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #game-board {
-    /* flex: 1;
-    margin: 0; */
-    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
 #game-board canvas {
-    /* position: absolute;
+    /* border:solid 2px red; */
+    /* position: absolute; */
     height: 100vh;
-    object-fit:contain; */
+    /* object-fit:contain; */
 
 }
 
 #game-end{
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #game-intro, 

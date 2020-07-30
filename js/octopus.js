@@ -12,7 +12,7 @@ class Octopus {
         this.img.onload = () => {
             this.draw()
         }
-        this.img.src = 'images/octopus.png';
+        this.img.src = 'images/octopus-original.svg';
     }
     
     draw() {

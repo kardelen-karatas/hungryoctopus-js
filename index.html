@@ -8,13 +8,19 @@
     <body>
         <div id="container">
 
-            <div id="game-intro">
+            <div id="game-intro"  class="active">
                 <div id="hungry-octopus">
                     <img class="octopus" src="images/octopus-original.svg">
                     <h1>Hungry</br> Octopus</h1>
                 </div>
                 <p class="game-description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>Vivamus orci massa, rhoncus eu elementum in, iaculis sit amet magna. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>Vivamus orci massa, rhoncus eu elementum in, iaculis sit amet magna.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>Vivamus orci massa, rhoncus eu elementum in, iaculis sit amet magna.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>Vivamus orci massa, rhoncus eu elementum in, iaculis sit amet magna.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>Vivamus orci massa, rhoncus eu elementum in, iaculis sit amet magna.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>Vivamus orci massa, rhoncus eu elementum in, iaculis sit amet magna.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>Vivamus orci massa, rhoncus eu elementum in, iaculis sit amet magna.
+                    
                 </p>
                 
                 <div class="start-button-div">
@@ -26,12 +32,13 @@
             </div>
 
             <div id="game-board">
-                <p>Time : <span id=game-timer>00:00</span></p>
+                <p class="game-timer">Time<br/><span id=game-timer>00:00</span></p>
                 <canvas width="720" height="720" id="canvas"></canvas>
-                <p>Planktons : <span  id="eaten-planktons-game">0</span></p>
+                <p class="eaten-planktons-game">Planktons<br/><span  id="eaten-planktons-game">0</span></p>
             </div>
 
-            <div id="game-end" class=active>
+            <div id="game-end">
+                <img id="octopus-end" src="images/octopus-original.svg">
                 <p class="game-end-text">
                     Octopus is not hungry anymore.<br/>
                     It ate <span  id="eaten-planktons-end">0</span> planktons.
