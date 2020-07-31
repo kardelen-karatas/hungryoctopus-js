@@ -1,13 +1,15 @@
-@font-face {
+/* @font-face {
     font-family: myFirstFont;
     src: url(../font/ocean-font-family/OceanBold.ttf);
     font-weight: bold;
   }
 
+   */
+
 body{
     margin-top:0;margin-bottom:0;
     font-weight:normal;
-    font-family: ocean, 'Courier New', Courier, monospace;    
+    font-family: 'Patrick Hand', cursive;    
     background:url("../images/marine-background.jpg") center no-repeat; background-size:cover;
     color:#FF7F50;
     /* padding-top:250px; */
